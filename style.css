@@ -1,0 +1,141 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.container {
+    margin: 30px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.menu {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
+    padding: 10px;
+}
+
+.toggler {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    /* top: -15px; */
+    opacity: 0;
+    z-index: 2;
+    cursor: pointer;
+}
+
+
+
+.menu-box {
+    position: relative;
+    width: 35px;
+    height: 4px;
+    border-radius: 10px;
+    transition: ease 200ms;
+    background-color: black;
+
+}
+
+.menu-box::after,
+.menu-box::before
+ {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 4px;
+    background-color: black;
+    border-radius: 10px;
+    top: 10px;
+}
+
+.menu-box::before {
+    top: -10px;
+}
+
+.toggler:checked ~ .menu-box{
+    transform: rotate(45deg);
+    background-color: salmon;
+}
+
+.toggler:checked ~ .menu-box::after{
+    transform: rotate(90deg);
+    top: 0;
+    background-color: salmon;
+
+}
+
+.toggler:hover ~ .menu-box,
+.toggler:hover ~ .menu-box::after,
+.toggler:hover ~ .menu-box::before
+{
+    background-color: salmon;
+
+}
+
+.toggler:checked ~ .menu-box::before{
+   display: none;
+   
+}
+
+
+.toggler:checked ~ .navbar{
+    transform: translateX(0);
+    /* transform: translateY(0); */
+}
+
+
+.toggler:checked ~ .nav-text{
+    /* display: none; */
+   /* opacity: 0; */
+    visibility: hidden;
+}
+
+
+
+/* Navbar */
+.nav-text {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.navbar {
+    position: absolute;
+    top: 70px;
+    background-color: white;
+    width: 100%;
+    transform: translateX(-150%);
+    /* transform: translateY(-150%); */
+	transition: 1s ease;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    height: 80vh;
+}
+
+
+.list-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: none;
+    height: 50px;
+    height: 100%;
+    color: salmon;
+    cursor: pointer;
+}
